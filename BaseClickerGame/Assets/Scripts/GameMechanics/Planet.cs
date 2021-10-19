@@ -13,10 +13,13 @@ namespace GameMechanics
         [SerializeField] private float planetScaleIncrease;
         [SerializeField] public float Scalemultiplier = 1.5f;
 
+        private PlayerController playercontroller;
+        private UI.Stats stats;
         private System.Random rand = new System.Random();
         // Start is called before the first frame update
         void Start()
         {
+            playercontroller = FindObjectOfType<PlayerController>();
             StartCoroutine(ColorandDestroy());
         }
 
@@ -46,9 +49,11 @@ namespace GameMechanics
                 //transform.localScale = Increase;
 
                 yield return null;
+                
             }
-
+            playercontroller.PlanetUnClicked();
             Destroy(gameObject);
+
         }
         
         
