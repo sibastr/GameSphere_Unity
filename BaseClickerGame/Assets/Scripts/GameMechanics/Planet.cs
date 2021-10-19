@@ -7,14 +7,13 @@ namespace GameMechanics
 {
     public class Planet : MonoBehaviour
     {
-        [SerializeField] private float baseRadius = 10f;
+        
         [SerializeField] private SpriteRenderer planetSprite;
         [SerializeField] private float destroyTime;
         [SerializeField] private float planetScaleIncrease;
         [SerializeField] public float Scalemultiplier = 1.5f;
 
         private PlayerController playercontroller;
-        private UI.Stats stats;
         private System.Random rand = new System.Random();
         // Start is called before the first frame update
         void Start()
@@ -35,7 +34,6 @@ namespace GameMechanics
             //var deltaColor = Color.red - planetSprite.color;
             planetSprite.color = planetColor;
             var deltaColor = Color.red - planetColor;
-            var planetSize = baseRadius;
             var deltaScale = new Vector3(Scalemultiplier * transform.lossyScale.x, Scalemultiplier * transform.lossyScale.y, 1) - transform.localScale;
 
             while (counterTime < destroyTime)
@@ -55,7 +53,5 @@ namespace GameMechanics
             Destroy(gameObject);
 
         }
-        
-        
     }
 }
