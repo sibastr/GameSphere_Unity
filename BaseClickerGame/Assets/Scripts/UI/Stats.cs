@@ -10,12 +10,14 @@ namespace UI
             [SerializeField] private Text scoreText;
             [SerializeField] private Text missedPlanetsText;
             [SerializeField] private Text missclicksText;
+            [SerializeField] private Text timerText;
             
             private string current_score;
             private string current_missedPlanets;
             private string current_missclicks;
+            private string current_time;
 
-            public void ScoreText(int value)
+        public void ScoreText(int value)
             {
                 current_score = Convert.ToString(value);
                 scoreText.text = "Score: " + current_score;
@@ -32,7 +34,15 @@ namespace UI
                 missclicksText.text = "Missclicks: " + current_missclicks;
                 
             }
-        }
+            public void TimerText(int value)
+            {
+                current_time = Convert.ToString(value);
+                timerText.text = "Timer: " + current_time;
+                
+
+            }
+
+    }
 }
 
 

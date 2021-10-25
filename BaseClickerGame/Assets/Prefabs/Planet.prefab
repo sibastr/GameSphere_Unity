@@ -114,6 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 5257791788563518301}
-  destroyTime: 10
+  destroyTime: 3
   planetScaleIncrease: 0.0005
   Scalemultiplier: 1.5
