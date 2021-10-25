@@ -114,4 +114,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 0.8
-  startSpeed: 0.002
+  startSpeed: 0.02

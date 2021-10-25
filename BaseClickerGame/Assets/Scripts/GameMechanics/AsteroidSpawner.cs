@@ -43,9 +43,8 @@ namespace GameMechanics
                 var counterTime = 0f;
                 while (counterTime < spawnTimerForStart)
                 {
-                    //var AsteroidPosition = new Vector2((float)(rand.NextDouble() - 0.5) * width, (float)(rand.NextDouble() - 0.5) * height);
-
-                    var AsteroidPosition = new Vector2(-0.6f * width, (float)(rand.NextDouble() - 0.5) * height);
+                   
+                    var AsteroidPosition = new Vector3(-0.6f * width, (float)(rand.NextDouble() - 0.5) * height, -1);
                     var Asteroid = Instantiate(AsteroidPrefab, AsteroidPosition, Quaternion.identity);
                     counterTime += Time.deltaTime;
                     yield return new WaitForSeconds(spawnTimerBetweenAsteroids);

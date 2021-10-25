@@ -113,8 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1013a350151f82440a808dfd55c0153c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRadius: 10.1
   planetSprite: {fileID: 5257791788563518301}
-  destroyTime: 2
+  destroyTime: 10
   planetScaleIncrease: 0.0005
   Scalemultiplier: 1.5

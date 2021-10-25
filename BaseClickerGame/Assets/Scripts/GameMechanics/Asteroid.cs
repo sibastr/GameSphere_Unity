@@ -12,6 +12,7 @@ namespace GameMechanics
         private Camera cam;
         private float height;
         private float width;
+        private float position_z = -1;
 
         // Start is called before the first frame update
         void Start()
@@ -34,7 +35,7 @@ namespace GameMechanics
             {
                 if (true)
                 {
-                    gameObject.transform.position = new Vector2(gameObject.transform.position.x + startSpeed, gameObject.transform.position.y);
+                    gameObject.transform.position = new Vector3(gameObject.transform.position.x + startSpeed, gameObject.transform.position.y, position_z);
                     
                     Vector3 to = new Vector3(0, 0, rotation);
 
