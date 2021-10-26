@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
 namespace UI
 {
     public class MenuPanel : MonoBehaviour
@@ -8,6 +10,7 @@ namespace UI
         [SerializeField] private GameObject menuPanel;
         [SerializeField] private GameObject StatsPanel;
         [SerializeField] private GameObject TimeModePanel;
+        [SerializeField] private Text timeModeScore;
         //private GameMechanics.PlanetSpawner planetSpawner;
        //private GameMechanics.AsteroidSpawner asteroidSpawner;
         private GameMechanics.PlayerController playerController;
@@ -20,21 +23,21 @@ namespace UI
         }
 
         // Update is called once per frame
-        void Update()
+        
+        public void MenuOn(int score, string mode)
         {
-
-        }
-        public void MenuOn()
-        {
-            if (TimeModePanel.activeSelf)
+            if (mode == "time")
             {
                 TimeModePanel.SetActive(false);
+                menuPanel.SetActive(true);
+                timeModeScore.text = "Last score:" + Convert.ToString(score); ;
             }
-            else if(StatsPanel.activeSelf)
+            else if(mode == "classic")
             {
                 StatsPanel.SetActive(false);
+                menuPanel.SetActive(true);
             }
-            menuPanel.SetActive(true);
+        
         }
         public void ClassicMode()
         {

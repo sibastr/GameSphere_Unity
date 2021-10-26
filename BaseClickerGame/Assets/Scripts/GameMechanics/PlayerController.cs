@@ -140,7 +140,7 @@ namespace GameMechanics
             }
             else
                 print("Good");*/
-            menuPanel.MenuOn();
+            menuPanel.MenuOn(score, mode);
 
         }
         public void PlanetUnClicked()
