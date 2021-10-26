@@ -7,9 +7,13 @@ namespace UI
 {
         public class Stats : MonoBehaviour
         {
-            [SerializeField] private Text scoreText;
-            [SerializeField] private Text missedPlanetsText;
-            [SerializeField] private Text missclicksText;
+            [SerializeField] private Text classicscoreText;
+            [SerializeField] private Text classicmissedPlanetsText;
+            [SerializeField] private Text classicmissclicksText;
+
+            [SerializeField] private Text timescoreText;
+            [SerializeField] private Text timemissedPlanetsText;
+            [SerializeField] private Text timemissclicksText;
             [SerializeField] private Text timerText;
             
             private string current_score;
@@ -17,22 +21,45 @@ namespace UI
             private string current_missclicks;
             private string current_time;
 
-        public void ScoreText(int value)
+        public void ScoreText(int value,string mode)
+            {
+                if (mode == "classic")
             {
                 current_score = Convert.ToString(value);
-                scoreText.text = "Score: " + current_score;
+                classicscoreText.text = "Score: " + current_score;
+            }
+                else if (mode == "time")
+            {
+                current_score = Convert.ToString(value);
+                timescoreText.text = "Score: " + current_score;
+            }
             }
 
-            public void MissedPlanetsText(int value)
+            public void MissedPlanetsText(int value, string mode)
+            {
+                if (mode == "classic")
+                {
+                    current_missedPlanets = Convert.ToString(value);
+                    classicmissedPlanetsText.text = "Missed planets: " + current_missedPlanets;
+                }
+                else if (mode == "time")
             {
                 current_missedPlanets = Convert.ToString(value);
-                missedPlanetsText.text = "Missed planets: " + current_missedPlanets;
+                timemissedPlanetsText.text = "Missed planets: " + current_missedPlanets;
             }
-            public void MissclicksText(int value)
+            }
+            public void MissclicksText(int value, string mode)
+            {
+                if (mode == "classic")
+                {
+                    current_missclicks = Convert.ToString(value);
+                    classicmissclicksText.text = "Missclicks: " + current_missclicks;
+                }
+                else if (mode == "time")
             {
                 current_missclicks = Convert.ToString(value);
-                missclicksText.text = "Missclicks: " + current_missclicks;
-                
+                timemissclicksText.text = "Missclicks: " + current_missclicks;
+            }
             }
             public void TimerText(int value)
             {

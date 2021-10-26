@@ -287,7 +287,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 614253799}
         m_TargetAssemblyTypeName: UI.MenuPanel, Assembly-CSharp
-        m_MethodName: MenuOff
+        m_MethodName: TimeMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -675,6 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 614253797}
   StatsPanel: {fileID: 1885111982}
+  TimeModePanel: {fileID: 1170503620}
 --- !u!114 &614253800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,7 +1175,7 @@ GameObject:
   - component: {fileID: 1170503623}
   - component: {fileID: 1170503622}
   m_Layer: 5
-  m_Name: TimeMode
+  m_Name: TimeModePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29632c1d99cbce43b1ff028f1fb74ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 20
+  timer: 5
 --- !u!4 &1187311804
 Transform:
   m_ObjectHideFlags: 0
@@ -1875,7 +1876,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc3a19c61ddb904c8f64986c79e831b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1049251917}
-  missedPlanetsText: {fileID: 41948264}
-  missclicksText: {fileID: 1103171387}
+  classicscoreText: {fileID: 1049251917}
+  classicmissedPlanetsText: {fileID: 41948264}
+  classicmissclicksText: {fileID: 1103171387}
+  timescoreText: {fileID: 1309222688}
+  timemissedPlanetsText: {fileID: 347089453}
+  timemissclicksText: {fileID: 741507837}
   timerText: {fileID: 506592036}

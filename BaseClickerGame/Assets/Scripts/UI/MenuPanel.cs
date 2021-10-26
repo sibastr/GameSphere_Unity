@@ -7,14 +7,15 @@ namespace UI
     {
         [SerializeField] private GameObject menuPanel;
         [SerializeField] private GameObject StatsPanel;
-        private GameMechanics.PlanetSpawner planetSpawner;
-        private GameMechanics.AsteroidSpawner asteroidSpawner;
+        [SerializeField] private GameObject TimeModePanel;
+        //private GameMechanics.PlanetSpawner planetSpawner;
+       //private GameMechanics.AsteroidSpawner asteroidSpawner;
         private GameMechanics.PlayerController playerController;
         // Start is called before the first frame update
         void Start()
         {
-            planetSpawner = FindObjectOfType<GameMechanics.PlanetSpawner>();
-            asteroidSpawner = FindObjectOfType<GameMechanics.AsteroidSpawner>();
+            //planetSpawner = FindObjectOfType<GameMechanics.PlanetSpawner>();
+           // asteroidSpawner = FindObjectOfType<GameMechanics.AsteroidSpawner>();
             playerController = FindObjectOfType<GameMechanics.PlayerController>();
         }
 
@@ -31,9 +32,15 @@ namespace UI
         {
             menuPanel.SetActive(false);
             StatsPanel.SetActive(true);
-            planetSpawner.ClassicStart();
-            asteroidSpawner.ClassicStart();
-            playerController.StartGame();
+            //planetSpawner.PlanetStart();
+            //asteroidSpawner.AsteroidStart();
+            playerController.ClassicStart();
+        }
+        public void TimeMode()
+        {
+            menuPanel.SetActive(false);
+            TimeModePanel.SetActive(true);
+            playerController.TimeModeStart();
         }
 
         //public void ShowMenu()

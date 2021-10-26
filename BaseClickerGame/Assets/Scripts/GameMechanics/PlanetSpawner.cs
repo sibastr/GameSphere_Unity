@@ -11,11 +11,13 @@ namespace GameMechanics
         private float height;
         private float width;
         private float fixedBorder;
-        private Coroutine _spawnPlanetsCoroutine;
+        
         
 
         [SerializeField] GameObject PlanetPrefab;
         [SerializeField] float spawntimer;
+
+        public Coroutine _spawnPlanetCoroutine;
 
         // Start is called before the first frame update
         /*void Start()
@@ -29,7 +31,7 @@ namespace GameMechanics
 
             StartCoroutine(SpawnPlanets());
         }*/
-        public void ClassicStart()
+        public void PlanetStart()
         {
             Vector2 local_sprite_size = PlanetPrefab.GetComponent<SpriteRenderer>().sprite.rect.size / PlanetPrefab.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 
@@ -38,9 +40,7 @@ namespace GameMechanics
             height = 2f * (cam.orthographicSize - fixedBorder);
             width = height * cam.aspect;
 
-            StartCoroutine(SpawnPlanets());
-            _spawnPlanetsCoroutine = StartCoroutine(SpawnPlanets());
-            
+            _spawnPlanetCoroutine = StartCoroutine(SpawnPlanets());
 
         }
 
@@ -49,7 +49,7 @@ namespace GameMechanics
         {
 
         }
-        private IEnumerator SpawnPlanets()
+        public IEnumerator SpawnPlanets()
         {
 
             while (true)

@@ -14,7 +14,8 @@ namespace GameMechanics
         private float height;
         private float width;
         private float fixedBorder;
-        private Coroutine _spawnAsteroidCoroutine;
+        public Coroutine _spawnAsteroidCoroutine;
+
 
         [SerializeField] GameObject AsteroidPrefab;
         // Start is called before the first frame update
@@ -30,7 +31,7 @@ namespace GameMechanics
             StartCoroutine(SpawnAsteroids());
             
         }*/
-        public void ClassicStart()
+        public void AsteroidStart()
         {
             Vector2 local_sprite_size = AsteroidPrefab.GetComponent<SpriteRenderer>().sprite.rect.size / AsteroidPrefab.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 
@@ -39,13 +40,13 @@ namespace GameMechanics
             height = 2f * (cam.orthographicSize - fixedBorder);
             width = height * cam.aspect;
 
-            StartCoroutine(SpawnAsteroids());
             _spawnAsteroidCoroutine = StartCoroutine(SpawnAsteroids());
+            
         }
 
         // Update is called once per frame
         
-        private IEnumerator SpawnAsteroids()
+        public IEnumerator SpawnAsteroids()
         {
             while (true)
             {
