@@ -7,6 +7,7 @@ namespace GameMechanics
     public class PlayerController : MonoBehaviour
     {
         private UI.Stats stats;
+        private UI.MenuPanel menuPanel;
         private Camera cam;
         private int score = 0;
         private int misses = 0;
@@ -51,12 +52,13 @@ namespace GameMechanics
             cam = Camera.main;
             mode = "classic";
             stats = FindObjectOfType<UI.Stats>();
+            menuPanel = FindObjectOfType<UI.MenuPanel>();
             asteroidSpawner = FindObjectOfType<AsteroidSpawner>();
             planetSpawner = FindObjectOfType<PlanetSpawner>();
             asteroidSpawner.AsteroidStart();
             planetSpawner.PlanetStart();
-            
-            StartCoroutine(Clicks(mode));
+
+            _clicksCoroutine = StartCoroutine(Clicks(mode));
             
         }
         public void TimeModeStart()
@@ -64,6 +66,9 @@ namespace GameMechanics
             cam = Camera.main;
             mode = "time";
             stats = FindObjectOfType<UI.Stats>();
+            menuPanel = FindObjectOfType<UI.MenuPanel>();
+            //print(menuPanel);
+            //print(stats);
             asteroidSpawner = FindObjectOfType<AsteroidSpawner>();
             planetSpawner = FindObjectOfType<PlanetSpawner>();
             asteroidSpawner.AsteroidStart();
@@ -129,6 +134,13 @@ namespace GameMechanics
             {
                 Destroy(b.gameObject);
             }
+            /*if (menuPanel != null)
+            {
+                print("Why?");
+            }
+            else
+                print("Good");*/
+            menuPanel.MenuOn();
 
         }
         public void PlanetUnClicked()

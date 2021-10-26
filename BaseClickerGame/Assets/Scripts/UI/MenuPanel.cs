@@ -24,16 +24,22 @@ namespace UI
         {
 
         }
-        public void MenuOff()
+        public void MenuOn()
         {
-            menuPanel.SetActive(false);
+            if (TimeModePanel.activeSelf)
+            {
+                TimeModePanel.SetActive(false);
+            }
+            else if(StatsPanel.activeSelf)
+            {
+                StatsPanel.SetActive(false);
+            }
+            menuPanel.SetActive(true);
         }
         public void ClassicMode()
         {
             menuPanel.SetActive(false);
             StatsPanel.SetActive(true);
-            //planetSpawner.PlanetStart();
-            //asteroidSpawner.AsteroidStart();
             playerController.ClassicStart();
         }
         public void TimeMode()
