@@ -140,7 +140,16 @@ namespace GameMechanics
             }
             else
                 print("Good");*/
+
+            
             menuPanel.MenuOn(score, mode);
+
+            score = 0;
+            missclicks = 0;
+            misses = 0;
+            stats.MissedPlanetsText(misses, mode);
+            stats.MissclicksText(missclicks, mode);
+            stats.ScoreText(score, mode);
 
         }
         public void PlanetUnClicked()

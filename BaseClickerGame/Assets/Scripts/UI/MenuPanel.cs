@@ -28,6 +28,7 @@ namespace UI
         {
             if (mode == "time")
             {
+                
                 TimeModePanel.SetActive(false);
                 menuPanel.SetActive(true);
                 timeModeScore.text = "Last score:" + Convert.ToString(score); ;
