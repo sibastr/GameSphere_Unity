@@ -45,9 +45,10 @@ namespace GameMechanics
         }
 
         // Update is called once per frame
-        void Update()
+        
+        public void StopSpawn()
         {
-
+            StopCoroutine(_spawnPlanetCoroutine);
         }
         public IEnumerator SpawnPlanets()
         {

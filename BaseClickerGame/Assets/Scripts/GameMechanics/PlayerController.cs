@@ -67,8 +67,6 @@ namespace GameMechanics
             mode = "time";
             stats = FindObjectOfType<UI.Stats>();
             menuPanel = FindObjectOfType<UI.MenuPanel>();
-            //print(menuPanel);
-            //print(stats);
             asteroidSpawner = FindObjectOfType<AsteroidSpawner>();
             planetSpawner = FindObjectOfType<PlanetSpawner>();
             asteroidSpawner.AsteroidStart();
@@ -115,31 +113,30 @@ namespace GameMechanics
                 yield return null;
             }
             GameEnd();
-            StopCoroutine(_timerCoroutine);
+            //StopCoroutine(_timerCoroutine);
 
 
         }
         private void GameEnd()
         {
-            StopCoroutine(planetSpawner._spawnPlanetCoroutine);
-            StopCoroutine(asteroidSpawner._spawnAsteroidCoroutine);
+            StopCoroutine(_timerCoroutine);
+            //StopCoroutine(planetSpawner._spawnPlanetCoroutine);
+            planetSpawner.StopSpawn();
+            //StopCoroutine(asteroidSpawner._spawnAsteroidCoroutine);
+            asteroidSpawner.StopSpawn();
             StopCoroutine(_clicksCoroutine);
             var asteroidobjects = FindObjectsOfType<Asteroid>();
             var planetobjects = FindObjectsOfType<Planet>();
             foreach (var a in asteroidobjects)
             {
+                //StopCoroutine(a.AsteroidCoroutine);
                 Destroy(a.gameObject);
             }
             foreach (var b in planetobjects)
             {
                 Destroy(b.gameObject);
             }
-            /*if (menuPanel != null)
-            {
-                print("Why?");
-            }
-            else
-                print("Good");*/
+          
 
             
             menuPanel.MenuOn(score, mode);

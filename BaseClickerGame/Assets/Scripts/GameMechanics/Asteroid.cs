@@ -13,6 +13,7 @@ namespace GameMechanics
         private float height;
         private float width;
         private float position_z = -1;
+        public Coroutine AsteroidCoroutine;
 
         // Start is called before the first frame update
         void Start()
@@ -21,7 +22,7 @@ namespace GameMechanics
             height = 2f * cam.orthographicSize;
             width = height * cam.aspect;
 
-            StartCoroutine(Move());
+            AsteroidCoroutine = StartCoroutine(Move());
         }
 
         // Update is called once per frame

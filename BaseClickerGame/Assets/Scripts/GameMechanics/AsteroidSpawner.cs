@@ -45,7 +45,11 @@ namespace GameMechanics
         }
 
         // Update is called once per frame
-        
+        public void StopSpawn()
+        {
+            StopCoroutine(_spawnAsteroidCoroutine);
+        }
+
         public IEnumerator SpawnAsteroids()
         {
             while (true)
