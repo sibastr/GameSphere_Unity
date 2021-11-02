@@ -13,11 +13,12 @@ namespace GameMechanics
         private Camera cam;
         private float height;
         private float width;
-        private float position_z = -1;
+        private float position_z = -5;
         public Coroutine AsteroidCoroutine;
         public int AsteroidDirection;
         private Vector3 currentEulerAngles;
         private Quaternion currentRotation;
+        private Rigidbody2D rb;
 
 
         // Start is called before the first frame update
@@ -25,8 +26,9 @@ namespace GameMechanics
         {
             cam = Camera.main;
             height = 2f * cam.orthographicSize;
-            width = height * cam.aspect;
-
+            width = height * cam.aspect * 0.6f;
+            //print(width);
+            rb = GetComponent<Rigidbody2D>();
             AsteroidCoroutine = StartCoroutine(Move());
         }
 
@@ -34,19 +36,25 @@ namespace GameMechanics
         {   
             while (true)
             {
-    
+
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x - AsteroidDirection * startSpeed, gameObject.transform.position.y, position_z);
-                    
+                //rb.velocity = new Vector2(gameObject.transform.position.x - AsteroidDirection * startSpeed, 0);
+
                 currentEulerAngles += new Vector3(gameObject.transform.rotation.x,
-                    gameObject.transform.rotation.y, gameObject.transform.rotation.z - AsteroidDirection * rotation) * Time.deltaTime * rotationSpeed;
+                    gameObject.transform.rotation.y, gameObject.transform.rotation.z + AsteroidDirection * rotation) * Time.deltaTime * rotationSpeed;
                 currentRotation.eulerAngles = currentEulerAngles;
                 transform.rotation = currentRotation;
 
-                    
-                if (gameObject.transform.position.x > width)
-                { 
+
+                if (gameObject.transform.position.x > width && AsteroidDirection == -1)
+                {
                     Destroy(gameObject);
                 }
+                else if (gameObject.transform.position.x < -width && AsteroidDirection == 1)
+                {
+                    Destroy(gameObject);
+                }
+
                 yield return null;
             }
         }

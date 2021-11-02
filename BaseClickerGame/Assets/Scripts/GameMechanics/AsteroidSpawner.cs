@@ -27,6 +27,7 @@ namespace GameMechanics
             cam = Camera.main;
             height = 2f * (cam.orthographicSize - fixedBorder);
             width = height * cam.aspect;
+            //print(width);
 
             _spawnAsteroidCoroutine = StartCoroutine(SpawnAsteroids());
             

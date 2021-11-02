@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlanetPrefab: {fileID: 5257791788563518300, guid: 842c57b93a09e004caaacf44eb98e16c, type: 3}
-  spawntimer: 0.5
+  spawntimer: 100
 --- !u!1 &347089451
 GameObject:
   m_ObjectHideFlags: 0
