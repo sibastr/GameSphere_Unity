@@ -8,6 +8,7 @@ namespace GameMechanics
     {
         private UI.Stats stats;
         private UI.MenuPanel menuPanel;
+        private Planet planet;
         private Camera cam;
         private int score = 0;
         private int misses = 0;
@@ -55,6 +56,7 @@ namespace GameMechanics
             menuPanel = FindObjectOfType<UI.MenuPanel>();
             asteroidSpawner = FindObjectOfType<AsteroidSpawner>();
             planetSpawner = FindObjectOfType<PlanetSpawner>();
+            planet = FindObjectOfType<Planet>();
             asteroidSpawner.AsteroidStart();
             planetSpawner.PlanetStart();
 
@@ -69,6 +71,7 @@ namespace GameMechanics
             menuPanel = FindObjectOfType<UI.MenuPanel>();
             asteroidSpawner = FindObjectOfType<AsteroidSpawner>();
             planetSpawner = FindObjectOfType<PlanetSpawner>();
+            planet = FindObjectOfType<Planet>();
             asteroidSpawner.AsteroidStart();
             planetSpawner.PlanetStart();
 
@@ -88,7 +91,9 @@ namespace GameMechanics
                     var connect = Physics2D.OverlapPoint(position);
                     if (connect != null && connect.GetComponent<Planet>())
                     {
-                        Destroy(connect.gameObject);
+                        //Destroy(connect.gameObject);
+                        //StartCoroutine(connect.GetComponent<Planet>().PlanetClicked());
+                        connect.GetComponent<Planet>().PlanetClicked();
                         score += 1;
                         stats.ScoreText(score, mode);
                     }

@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTimerForStart: 0.3
-  spawnTimerBetweenAsteroids: 0.4
+  spawnTimerBetweenAsteroids: 0.3
   AsteroidPrefab: {fileID: 568657358426996074, guid: 2490c4f46dcf43943b45d2535ee88893, type: 3}
 --- !u!4 &1239679271
 Transform:

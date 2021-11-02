@@ -12,9 +12,11 @@ namespace GameMechanics
         [SerializeField] private float destroyTime;
         [SerializeField] private float planetScaleIncrease;
         [SerializeField] public float Scalemultiplier = 1.5f;
+        [SerializeField] private ParticleSystem particle;
 
         private PlayerController playercontroller;
         private System.Random rand = new System.Random();
+
         // Start is called before the first frame update
         void Start()
         {
@@ -22,11 +24,26 @@ namespace GameMechanics
             StartCoroutine(ColorandDestroy());
         }
 
-        // Update is called once per frame
-        void Update()
+        public void PlanetClicked()
         {
-
+            StartCoroutine(PlanetClickedDestroy());
         }
+
+
+        public IEnumerator PlanetClickedDestroy()
+        {
+            particle.Play();
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+            yield return new WaitForSeconds(0.5f);
+            if (gameObject != null)
+            {
+                Destroy(gameObject);
+            }
+            
+        }
+
         private IEnumerator ColorandDestroy()
         {
             var counterTime = 0f;
