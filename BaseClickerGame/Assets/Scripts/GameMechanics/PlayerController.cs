@@ -17,37 +17,11 @@ namespace GameMechanics
 
         private AsteroidSpawner asteroidSpawner;
         private PlanetSpawner planetSpawner;
-        //private Coroutine _spawnAsteroidCoroutine;
-        //private Coroutine _spawnPlanetsCoroutine;
+       
         private Coroutine _clicksCoroutine;
         private Coroutine _timerCoroutine;
         private string mode;
-        // Start is called before the first frame update
-        /*void Start()
-        {
-            cam = Camera.main;
-            stats = FindObjectOfType<UI.Stats>();
-
-        }*/
-        /*void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                var position = cam.ScreenToWorldPoint(Input.mousePosition);
-                var connect = Physics2D.OverlapPoint(position);
-                if (connect != null && connect.GetComponent<Planet>())
-                {
-                    Destroy(connect.gameObject);
-                    score += 1;
-                    stats.ScoreText(score);
-                }
-                else if (connect == null)
-                {
-                    missclicks += 1;
-                    stats.MissclicksText(missclicks);
-                }
-            } 
-        }*/
+       
         public void ClassicStart()
         {
             cam = Camera.main;
@@ -91,8 +65,7 @@ namespace GameMechanics
                     var connect = Physics2D.OverlapPoint(position);
                     if (connect != null && connect.GetComponent<Planet>())
                     {
-                        //Destroy(connect.gameObject);
-                        //StartCoroutine(connect.GetComponent<Planet>().PlanetClicked());
+                        
                         connect.GetComponent<Planet>().PlanetClicked();
                         score += 1;
                         stats.ScoreText(score, mode);

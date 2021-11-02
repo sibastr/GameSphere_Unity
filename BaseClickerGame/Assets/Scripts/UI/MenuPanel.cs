@@ -11,18 +11,13 @@ namespace UI
         [SerializeField] private GameObject StatsPanel;
         [SerializeField] private GameObject TimeModePanel;
         [SerializeField] private Text timeModeScore;
-        //private GameMechanics.PlanetSpawner planetSpawner;
-       //private GameMechanics.AsteroidSpawner asteroidSpawner;
         private GameMechanics.PlayerController playerController;
-        // Start is called before the first frame update
+       
         void Start()
         {
-            //planetSpawner = FindObjectOfType<GameMechanics.PlanetSpawner>();
-           // asteroidSpawner = FindObjectOfType<GameMechanics.AsteroidSpawner>();
+            
             playerController = FindObjectOfType<GameMechanics.PlayerController>();
         }
-
-        // Update is called once per frame
         
         public void MenuOn(int score, string mode)
         {
@@ -52,10 +47,5 @@ namespace UI
             TimeModePanel.SetActive(true);
             playerController.TimeModeStart();
         }
-
-        //public void ShowMenu()
-        //{
-        //    livesEndedPanel.SetActive(true);
-        //}
     }
 }
