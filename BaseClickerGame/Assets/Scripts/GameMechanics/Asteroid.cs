@@ -46,11 +46,11 @@ namespace GameMechanics
                 transform.rotation = currentRotation;
 
 
-                if (gameObject.transform.position.x > width && AsteroidDirection == -1)
+                if ((gameObject.transform.position.x > width && AsteroidDirection == -1) || (gameObject.transform.position.y > height || gameObject.transform.position.x < -height))
                 {
                     Destroy(gameObject);
                 }
-                else if (gameObject.transform.position.x < -width && AsteroidDirection == 1)
+                else if ((gameObject.transform.position.x < -width && AsteroidDirection == 1) || (gameObject.transform.position.y > height || gameObject.transform.position.x < -height))
                 {
                     Destroy(gameObject);
                 }
