@@ -33,12 +33,13 @@ namespace GameMechanics
         }
 
         private IEnumerator Move()
-        {   
+        {
+            rb.AddForce(new Vector2(-AsteroidDirection * startSpeed, 0));
             while (true)
             {
 
                 //gameObject.transform.position = new Vector3(gameObject.transform.position.x - AsteroidDirection * startSpeed, gameObject.transform.position.y, position_z);
-                rb.velocity = new Vector2(-AsteroidDirection * startSpeed, rb.velocity.y);
+                //rb.velocity = new Vector2(-AsteroidDirection * startSpeed, rb.velocity.y);
 
                 currentEulerAngles += new Vector3(gameObject.transform.rotation.x,
                     gameObject.transform.rotation.y, gameObject.transform.rotation.z + AsteroidDirection * rotation) * Time.deltaTime * rotationSpeed;

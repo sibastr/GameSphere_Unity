@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 45
-  startSpeed: 1
+  startSpeed: 200
   rotationSpeed: 5
   AsteroidDirection: 0
 --- !u!50 &3245063458160837795
