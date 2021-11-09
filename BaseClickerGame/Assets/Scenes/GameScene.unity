@@ -757,6 +757,7 @@ MonoBehaviour:
   StatsPanel: {fileID: 1885111982}
   TimeModePanel: {fileID: 1170503620}
   timeModeScore: {fileID: 0}
+  menuSound: {fileID: 5594927977330453706, guid: 13e8a9ef9968cc346b321ab64690143e, type: 3}
 --- !u!114 &614253800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1938,3 +1939,4 @@ MonoBehaviour:
   StatsPanel: {fileID: 1885111982}
   TimeModePanel: {fileID: 1170503620}
   timeModeScore: {fileID: 432634817}
+  menuSound: {fileID: 0}

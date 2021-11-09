@@ -12,13 +12,22 @@ namespace UI
         [SerializeField] private GameObject TimeModePanel;
         [SerializeField] private Text timeModeScore;
         private GameMechanics.PlayerController playerController;
+        [SerializeField] private GameObject menuSound;
+        private GameObject _menuSound;
        
         void Start()
         {
-            
             playerController = FindObjectOfType<GameMechanics.PlayerController>();
         }
-        
+        private void OnEnable()
+        {
+            _menuSound = Instantiate(menuSound, gameObject.transform.position, Quaternion.identity);
+        }
+        private void OnDisable()
+        {
+            Destroy(_menuSound);
+        }
+
         public void MenuOn(int score, string mode)
         {
             if (mode == "time")
