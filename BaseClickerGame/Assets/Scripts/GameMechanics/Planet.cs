@@ -13,6 +13,11 @@ namespace GameMechanics
         [SerializeField] private float planetScaleIncrease;
         [SerializeField] public float Scalemultiplier = 1.5f;
         [SerializeField] private ParticleSystem particle;
+        [SerializeField] private GameObject planetExplosion;
+        private Coroutine colorandDestroy;
+
+
+
 
         private PlayerController playercontroller;
         private System.Random rand = new System.Random();
@@ -21,7 +26,7 @@ namespace GameMechanics
         void Start()
         {
             playercontroller = FindObjectOfType<PlayerController>();
-            StartCoroutine(ColorandDestroy());
+            colorandDestroy = StartCoroutine(ColorandDestroy());
         }
 
         public void PlanetClicked()
@@ -32,16 +37,22 @@ namespace GameMechanics
 
         public IEnumerator PlanetClickedDestroy()
         {
-            particle.Play();
+            //particle.Play();
+            StopCoroutine(colorandDestroy);
+            Instantiate(particle, gameObject.transform.position, Quaternion.identity);
+            
+            
+            var a = Instantiate(planetExplosion, gameObject.transform.position, Quaternion.identity);
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
             yield return new WaitForSeconds(0.5f);
             if (gameObject != null)
             {
+                
                 Destroy(gameObject);
             }
-            
+            Destroy(a.gameObject);
         }
 
         private IEnumerator ColorandDestroy()
