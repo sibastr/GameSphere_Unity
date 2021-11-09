@@ -14,6 +14,7 @@ namespace GameMechanics
         [SerializeField] public float Scalemultiplier = 1.5f;
         [SerializeField] private ParticleSystem particle;
         [SerializeField] private GameObject planetExplosion;
+        [SerializeField] private GameObject soundplayer;
         private Coroutine colorandDestroy;
 
 
@@ -34,25 +35,28 @@ namespace GameMechanics
             StartCoroutine(PlanetClickedDestroy());
         }
 
-
+        private void PlayExplosionSound()
+        {
+            Instantiate(soundplayer, gameObject.transform.position, Quaternion.identity);
+        }
         public IEnumerator PlanetClickedDestroy()
         {
-            //particle.Play();
+            PlayExplosionSound();
             StopCoroutine(colorandDestroy);
             Instantiate(particle, gameObject.transform.position, Quaternion.identity);
-            
-            
             var a = Instantiate(planetExplosion, gameObject.transform.position, Quaternion.identity);
+
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            yield return new WaitForSeconds(0.5f);
+            
+            
             if (gameObject != null)
             {
-                
                 Destroy(gameObject);
             }
             Destroy(a.gameObject);
+            yield return null;
         }
 
         private IEnumerator ColorandDestroy()

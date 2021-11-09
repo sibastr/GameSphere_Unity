@@ -21,6 +21,10 @@ namespace GameMechanics
         private Coroutine _clicksCoroutine;
         private Coroutine _timerCoroutine;
         private string mode;
+
+        [SerializeField] private GameObject spaceMusic;
+        private GameObject _spaceMusic;
+       
        
         public void ClassicStart()
         {
@@ -34,9 +38,12 @@ namespace GameMechanics
             asteroidSpawner.AsteroidStart();
             planetSpawner.PlanetStart();
 
+            PlayMusicSpace();
+
             _clicksCoroutine = StartCoroutine(Clicks(mode));
             
         }
+        
         public void TimeModeStart()
         {
             cam = Camera.main;
@@ -49,11 +56,18 @@ namespace GameMechanics
             asteroidSpawner.AsteroidStart();
             planetSpawner.PlanetStart();
 
+            PlayMusicSpace();
+
             _clicksCoroutine = StartCoroutine(Clicks(mode));
             _timerCoroutine = StartCoroutine(Timer());
+            
 
         }
 
+        private void PlayMusicSpace()
+        {
+            _spaceMusic = Instantiate(spaceMusic, gameObject.transform.position, Quaternion.identity);
+        }
         private IEnumerator Clicks(string mode)
         {
 
@@ -91,32 +105,30 @@ namespace GameMechanics
                 yield return null;
             }
             GameEnd();
-            //StopCoroutine(_timerCoroutine);
-
-
+            
         }
         private void GameEnd()
         {
-            StopCoroutine(_timerCoroutine);
-            //StopCoroutine(planetSpawner._spawnPlanetCoroutine);
+            
+
+            Destroy(_spaceMusic);
+
             planetSpawner.StopSpawn();
-            //StopCoroutine(asteroidSpawner._spawnAsteroidCoroutine);
+            
             asteroidSpawner.StopSpawn();
             StopCoroutine(_clicksCoroutine);
             var asteroidobjects = FindObjectsOfType<Asteroid>();
             var planetobjects = FindObjectsOfType<Planet>();
             foreach (var a in asteroidobjects)
             {
-                //StopCoroutine(a.AsteroidCoroutine);
                 Destroy(a.gameObject);
             }
             foreach (var b in planetobjects)
             {
                 Destroy(b.gameObject);
             }
-          
+           
 
-            
             menuPanel.MenuOn(score, mode);
 
             score = 0;

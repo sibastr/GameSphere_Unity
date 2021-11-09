@@ -4984,3 +4984,4 @@ MonoBehaviour:
   Scalemultiplier: 1.5
   particle: {fileID: 8625437643055952077, guid: 2055e7d7fdec3ec4bae7c04268d45a28, type: 3}
   planetExplosion: {fileID: 3687546133150718297, guid: 7e68d906971711c45a7525198a57127e, type: 3}
+  soundplayer: {fileID: 6370357242636591488, guid: 782049064f490a34cbf5ac6cd6f0d41b, type: 3}

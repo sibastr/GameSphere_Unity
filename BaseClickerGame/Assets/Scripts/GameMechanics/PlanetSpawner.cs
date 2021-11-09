@@ -32,8 +32,6 @@ namespace GameMechanics
 
         }
 
-        // Update is called once per frame
-        
         public void StopSpawn()
         {
             StopCoroutine(_spawnPlanetCoroutine);
