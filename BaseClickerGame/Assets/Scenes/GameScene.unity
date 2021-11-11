@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlanetPrefab: {fileID: 5257791788563518300, guid: 842c57b93a09e004caaacf44eb98e16c, type: 3}
-  spawntimer: 0.6
+  spawntimer: 0.65
 --- !u!1 &347089451
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
   menuPanel: {fileID: 614253797}
   StatsPanel: {fileID: 1885111982}
   TimeModePanel: {fileID: 1170503620}
-  timeModeScore: {fileID: 0}
+  timeModeScore: {fileID: 432634817}
   menuSound: {fileID: 5594927977330453706, guid: 13e8a9ef9968cc346b321ab64690143e, type: 3}
 --- !u!114 &614253800
 MonoBehaviour:
@@ -1939,4 +1939,4 @@ MonoBehaviour:
   StatsPanel: {fileID: 1885111982}
   TimeModePanel: {fileID: 1170503620}
   timeModeScore: {fileID: 432634817}
-  menuSound: {fileID: 0}
+  menuSound: {fileID: 5594927977330453706, guid: 13e8a9ef9968cc346b321ab64690143e, type: 3}
